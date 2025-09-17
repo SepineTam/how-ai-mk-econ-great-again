@@ -153,10 +153,12 @@ class ScoreModel(ModelBase):
 
     def __init__(self,
                  task: str = None,
+                 task_id: str = None,
                  rule: str = None,
                  processer: str = None,
                  results: str = None):
         self.task = task
+        self.task_id = task_id
         self.processer = processer
         self.results = results
         self._set_rule(rule)
@@ -170,9 +172,13 @@ class ScoreModel(ModelBase):
         msg: List[Dict[str, str]] = [
             {"role": "system", "content": self.instruction},
 
-            {"role": "user", "content": "Here is the task:"+self.task},
-            {"role": "user", "content": "Here is the adjust rule:" + self.rule},
-
+            {"role": "user", "content": "Here is the task:"+self.task+"\nAnd task id is:"+self.task_id},
+            {
+                "role": "user",
+                "content":
+                    "Here is the adjust rule or we can say it is the reference answer, "
+                    "(but please note that it is not the certain answer):\n" + self.rule
+            },
             {
                 "role": "assistant",
                 "content":
