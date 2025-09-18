@@ -78,4 +78,5 @@ async def main(tasks: Iterable[Awaitable[Any]], max_concurrency: int = 10) -> Li
 if __name__ == "__main__":
     tasks = task_generator()
     print(f"Total tasks: {len(tasks)}")
-    # results = asyncio.run(main(tasks, max_concurrency=5))
+    results = asyncio.run(main(tasks, max_concurrency=5))
+    print("All of the tasks is OK!")
