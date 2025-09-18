@@ -165,7 +165,7 @@ class ScoreModel(ModelBase):
         self.advice_positive = AdvicePositive(rule)
         self.advice_negative = AdviceNegative(rule)
 
-    def score_it(self):
+    def score_it(self) -> str:
         positive_advice = self.advice_positive.advice(self.processer)
         negative_advice = self.advice_negative.advice(self.processer)
 
