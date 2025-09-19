@@ -48,7 +48,7 @@ class ScoreExtract:
     def __init__(self):
         pass
 
-    def run(self, input_text, task_id: str):
+    def run(self, input_text, task_id: str, model_id: str):
         # Run the extraction
         result = lx.extract(
             text_or_documents=input_text,
@@ -64,5 +64,5 @@ class ScoreExtract:
         # Config output setting
         out_dir = "outputs"
         os.makedirs(out_dir, exist_ok=True)
-        lx.io.save_annotated_documents([result], out_dir, f"{task_id}.jsonl")
+        lx.io.save_annotated_documents([result], out_dir, f"{model_id}_{task_id}.jsonl")
         print("OK")
