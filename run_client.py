@@ -72,3 +72,19 @@ class RunClient:
         )
         result = await agent.ainvoke({"messages": task})
         return result["messages"]
+
+
+if __name__ == "__main__":
+    import asyncio
+    import time
+
+    free_model = "deepseek/deepseek-chat-v3.1:free"
+    client = RunClient(free_model)
+    task_file = "./tasks/C2_C1.md"
+    with open(task_file, "r", encoding="utf-8") as f:
+        task = f.read()
+
+    start_time = time.time()
+    result = asyncio.run(client.run(task))
+    print(result)
+    print(f"Time taken: {time.time() - start_time:.2f} seconds")
