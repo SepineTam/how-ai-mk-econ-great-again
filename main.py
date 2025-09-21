@@ -50,6 +50,9 @@ def task_generator():
     tasks = []
     for model in model_list:
         for task_id in task_names:
+            # for fix error caused by file `.DS_Store` from macOS
+            if task_id == ".DS_Store":
+                continue
             with open(f"./tasks/{task_id}.md", encoding="utf-8") as f:
                 task_content = f.read()
             with open(f"./answers/{task_id}.md", encoding="utf-8") as f:
