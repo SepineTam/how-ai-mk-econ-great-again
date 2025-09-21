@@ -42,7 +42,7 @@ async def run_term(task: str,
     score_str += f"\nModel name: {model}\nTask time: {str(datetime.now())}"
     # 结构化数据提取
     # 服啦，好麻烦啊，我还要给这个函数写示例的prompt和信息提取的结构啥的这些东西，真烦，烦，烦！
-    se.run(score_str, task_id)
+    se.run(score_str, task_id, model)
     print(f"===== {model} works {task_id} run over =====")
 
 
