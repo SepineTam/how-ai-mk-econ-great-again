@@ -126,20 +126,40 @@ class ScoreModel(ModelBase):
     ## Example
     ```
     <meta>
-    Model Name: OpenAI GPT-5
-    TaskID: C-042
-    Language: zh-CN
+    TaskID: C1_C2
+    Language: EN
     </meta>
     <score>
     <score_from_results>
-    Result Score: 20
+    Result Score: 20 / 20
     Reason: ... (A example (it should be langer): This work result match to the reference result, and there is no matter about it.)
     </score_from_results>
     <score_from_processer>
-    Processer Score: 78
+    Processer Score: 68 / 80
     Reason: from 4 dim to describing the reason for this score ...
+    <detail>
+    <agent_reasoning>
+    Score: 19 / 20
+    Reason: ...
+    </agent_reasoning>
+    <tool_usage>
+    Score: 17 / 20
+    Reason: ...
+    </tool_usage>
+    <error_handling>
+    Score: 12 / 20
+    Reason: ...
+    </error_handling>
+    <planning>
+    Score: 20 / 20
+    Reason: ...
+    </planning>
+    
+    </detail>
     </score_from_processer>
-    FinalScore: 98 = 20 + 78
+    <final_score>
+    FinalScore: 88 = 20 + 68
+    </final_score>
     </score>
     ```
 
